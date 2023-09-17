@@ -19,7 +19,6 @@ function dragOver(e) {
 }
 
 function drop() {
-  var targetIndex = Array.from(listItems).indexOf(this);
   if (draggedItem !== this) {
     var parent = this.parentNode;
 
