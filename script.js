@@ -1,32 +1,21 @@
 var listItems = document.querySelectorAll(".list-item");
 var draggedItem = 0;
 
-listItems.forEach((item, index) => {
+listItems.forEach(function (item, index) {
   item.innerText = `Bài ${index + 1}: ${item.innerText}`;
   item.style.add;
   item.addEventListener("dragstart", dragStart);
   item.addEventListener("dragover", dragOver);
-  item.addEventListener("dragenter", dragEnter);
-  item.addEventListener("dragleave", dragLeave);
   item.addEventListener("drop", drop);
   item.addEventListener("dragend", dragEnd);
 });
 
 function dragStart(e) {
   draggedItem = this;
-  setTimeout(() => (this.style.display = "none"), 0);
 }
 
 function dragOver(e) {
   e.preventDefault();
-}
-
-function dragEnter() {
-  this.classList.add("over");
-}
-
-function dragLeave() {
-  this.classList.remove("over");
 }
 
 function drop() {
@@ -38,13 +27,9 @@ function drop() {
 
     updateIndex();
   }
-
-  this.classList.remove("over");
 }
 
 function dragEnd() {
-  setTimeout(() => (this.style.display = "block"), 0);
-
   updateIndex();
 }
 
